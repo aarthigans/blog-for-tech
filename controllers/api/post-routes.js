@@ -1,7 +1,7 @@
 const router = require("express").Router();
 const { User, Post, Comment } = require("../../models");
 
-//Get all posts
+// Get all posts
 router.get("/", (req, res) => {
   Post.findAll({
     attributes: ["id", "content", "title", "created_at"],
@@ -28,7 +28,7 @@ router.get("/", (req, res) => {
     });
 });
 
-//Get a single post
+// Get a single post
 router.get("/:id", (req, res) => {
   Post.findOne({
     where: {
@@ -40,7 +40,6 @@ router.get("/:id", (req, res) => {
         model: User,
         attributes: ["username"],
       },
-      // include the Comment model here:
       {
         model: Comment,
         attributes: ["id", "comment_text", "post_id", "user_id", "created_at"],
@@ -79,7 +78,7 @@ router.post("/", (req, res) => {
     });
 });
 
-//Update a post
+// Update a post
 router.put("/:id", (req, res) => {
   Post.update(
     {
