@@ -79,7 +79,7 @@ router.post("/", (req, res) => {
     });
 });
 
-//Update post
+//Update a post
 router.put("/:id", (req, res) => {
   Post.update(
     {
@@ -107,7 +107,7 @@ router.put("/:id", (req, res) => {
     });
 });
 
-//Delete post
+//Delete a post
 router.delete("/:id", (req, res) => {
   Post.destroy({
     where: {
